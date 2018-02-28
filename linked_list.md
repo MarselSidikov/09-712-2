@@ -69,6 +69,12 @@ struct Node {
     Node *next;
 };
 
+
+struct ArrayItem {
+   Node *head;
+   int count;
+}
+
 void reverse(Node *&first) {
     Node *previous = first;
     Node *current = first->next;
@@ -105,7 +111,19 @@ int get_by_index(Node *first, int index) {
     // TODO: реализовать получение элемента по индексу
 }
 
+void remove_by_index(Node *first, int index) {
+   // TODO: реализовать удаление под индексу
+}
 
+Node* merge(Node *a, Node *b) {
+   // TODO: реализовать слияние
+}
+
+Node* sort(Node *first) {
+   // TODO: реализовать сортировку через слияние
+   ArrayItem stack[32];
+   // ...
+}
 int main() {
 
     Node *a = new Node;
