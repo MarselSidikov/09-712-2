@@ -98,6 +98,7 @@ void reverse(Node *&first) {
     }
     current->next = previous;
 }
+
 void print_linked_list(Node *first) {
     Node *current = first;
 
@@ -107,18 +108,32 @@ void print_linked_list(Node *first) {
     }
 }
 
+// Карина, Лейсан, Никита
 int get_by_index(Node *first, int index) {
     // TODO: реализовать получение элемента по индексу
 }
 
-void remove_by_index(Node *first, int index) {
+// Карина, Лейсан, Никита
+void remove_by_index(Node *&first, int index) {
    // TODO: реализовать удаление под индексу
 }
 
+// Карина, Лейсан, Никита
+void add_to_begin(Node *&fisrt, int element) {
+   // TODO: реализовать добавление в начало
+}
+
+// Карина, Лейсан, Никита
+void add_to_end(Node *&first, int element) {
+   // TODO: реализовать добавление в конец
+}
+
+// Ильгам, Рузия, Артем
 Node* merge(Node *a, Node *b) {
    // TODO: реализовать слияние
 }
 
+// Ильгам, Рузия, Артем
 Node* sort(Node *first) {
    // TODO: реализовать сортировку через слияние
    ArrayItem stack[32];
