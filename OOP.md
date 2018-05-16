@@ -64,6 +64,28 @@ int main() {
 
 * Методы (поведение) - методы, которые можно вызвать из объекта.
 
+## Модификатор static
+
+Данный модификатор показывает, что метод, помеченный этим модификатором является статическим. То есть, его можно вызвать непосредственно из класса без создания объекта.
+
+```C
+static RationalNumber* multiply(RationalNumber *x, RationalNumber *y);
+
+Вызов:
+
+RationalNumber *c = RationalNumber::multiply(x, y);
+```
+
+## Перегрузка операторов
+
+C++ дает возможность определить собственное поведение при использовании различных операторов для ваших классов. Например, перемножение двух дробей.
+
+```C
+RationalNumber operator*(RationalNumber y);
+```
+
+Таким образом, вы определили оператор умножения, в котором указали правый операнд. Заметьте, без использования указателей.
+
 ## Исходный код
 
 * main.cpp
@@ -76,17 +98,31 @@ int main() {
 using namespace std;
 
 int main() {
-    RationalNumber *x = new RationalNumber;
-    x->setA(10);
-    x->setB(15);
-    x->optimize();
-    x->print();
+    RationalNumber x(10, 15);
+    RationalNumber y(2, 5);
+    // x->multiply(y);
+    // RationalNumber *c = RationalNumber::multiply(x, y);
+    RationalNumber c = x * y;
+    c.print();
 
-    LinkedList *list = new LinkedList;
-    list->add(10);
-    list->add(15);
-    list->add(8);
-    list->print();
+    cout << endl;
+
+    LinkedList list;
+    list.add(10);
+    list.add(15);
+    list.add(8);
+
+    LinkedList list1;
+    list1 + 4;
+    list1 + 5;
+    list1 + 6;
+
+    list.print();
+    cout << endl;
+    list1.print();
+    list + list1;
+    cout << endl;
+    list.print();
     return 0;
 }
 ```
@@ -113,16 +149,18 @@ private:
     int nod(int a, int b);
 public:
     // методы доступа - только заголовки
+    RationalNumber(int a, int b);
     void setA(int a);
     void setB(int b);
     int getA();
     int getB();
     void print();
     void optimize();
+    //static RationalNumber* multiply(RationalNumber *x, RationalNumber *y);
+    RationalNumber operator*(RationalNumber y);
 };
 
 #endif //OOP_RATIONALNUMBER_H
-
 ```
 
 * RationalNumber.cpp
@@ -131,6 +169,12 @@ public:
 #include "RationalNumber.h"
 #include <iostream>
 using namespace std;
+
+RationalNumber::RationalNumber(int a, int b) {
+    this->setA(a);
+    this->setB(b);
+}
+
 void RationalNumber::setA(int a) {
     this->a = a;
 }
@@ -144,11 +188,11 @@ void RationalNumber::setB(int b) {
 }
 
 int RationalNumber::getA() {
-    return this->a;
+    return a;
 }
 
 int RationalNumber::getB() {
-    return this->b;
+    return b;
 }
 
 void RationalNumber::optimize() {
@@ -159,6 +203,13 @@ void RationalNumber::optimize() {
 
 void RationalNumber::print() {
     cout << this->a << '/' << this->b;
+}
+
+RationalNumber RationalNumber::operator*(RationalNumber y) {
+    RationalNumber result(a * y.getA(),
+    b * y.getB());
+    result.optimize();
+    return result;
 }
 
 int RationalNumber::nod(int a, int b) {
@@ -246,6 +297,8 @@ public:
     LinkedList();
     void add(int value);
     void print();
+    void operator+(int element);
+    void operator+(LinkedList other);
 };
 
 
@@ -284,5 +337,17 @@ void LinkedList::print() {
 
 LinkedList::LinkedList() {
     this->top = nullptr;
+}
+
+void LinkedList::operator+(int element) {
+    this->add(element);
+}
+
+void LinkedList::operator+(LinkedList other) {
+    Node *current = other.top;
+    while(current != nullptr) {
+        this->add(current->getValue());
+        current = current->getNext();
+    }
 }
 ```
