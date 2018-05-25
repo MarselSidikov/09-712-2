@@ -1,9 +1,9 @@
 # Базы данных
 
-[Ссылка 1](https://github.com/MarselSidikov/JAVA_IT_PARK_WORK_5/wiki/%2324.-DB)
-[Ссылка 2](https://github.com/MarselSidikov/JAVA_ENTERPRISE/wiki/%D0%91%D0%90%D0%97%D0%AB-%D0%94%D0%90%D0%9D%D0%9D%D0%AB%D0%A5)
-[Ссылка на установку](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-[Ссылка на летние вечера](http://www.sql-ex.ru/?Lang=0)
+* [Ссылка 1](https://github.com/MarselSidikov/JAVA_IT_PARK_WORK_5/wiki/%2324.-DB)
+* [Ссылка 2](https://github.com/MarselSidikov/JAVA_ENTERPRISE/wiki/%D0%91%D0%90%D0%97%D0%AB-%D0%94%D0%90%D0%9D%D0%9D%D0%AB%D0%A5)
+* [Ссылка на установку](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+* [Ссылка на летние вечера](http://www.sql-ex.ru/?Lang=0)
 
 ```SQL
 CREATE TABLE student (
