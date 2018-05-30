@@ -1,0 +1,147 @@
+# Наследование
+
+## Второй(третий) принцип ООП
+
+* Позволяет избежать дублирования кода на уровне классов. 
+
+### Функции и процедуры позволяют избежать дублирования кода на уровне алгоритмов и последовательностей действий
+
+* Наследование - механизм ООП, который позволяет объектам классов-потомков переопределять и копировать поведение и состояние объектов классов-предков.
+
+## Наследование в C++
+
+1) Определить класс предок со всеми необходимыми полями, конструкторами и методами.
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#ifndef INHERITANCE_COMPLEXNUMBER_H
+#define INHERITANCE_COMPLEXNUMBER_H
+
+
+class ComplexNumber {
+protected:
+	// поля класса
+    double re;
+    double im;
+public:
+	// конструктор, принимающий на вход два параметра
+    ComplexNumber(double re, double im);
+    // методы класса
+    double calcModule();
+    void print();
+};
+
+
+#endif //INHERITANCE_COMPLEXNUMBER_H
+```
+
+2) Заметим, что те поля, видимость которых мы хотим обеспечить в потомке мы помечаем как protected
+
+3) Описываем реализацию класса-предка
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#include "ComplexNumber.h"
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+ComplexNumber::ComplexNumber(double re, double im) {
+    this->re = re;
+    this->im = im;
+}
+
+double ComplexNumber::calcModule() {
+    return sqrt(this->re * this->re +
+    this->im * this->im);
+}
+
+void ComplexNumber::print() {
+    cout << re << "+" << im << "i" << endl;
+}
+```
+
+4) Описываем заголовочный файл класса-потомка, с указанием того, что наш потомок является потомком класса-предка через ':'
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#ifndef INHERITANCE_QUATERNION_H
+#define INHERITANCE_QUATERNION_H
+
+#include "ComplexNumber.h"
+
+class Quaternion : public ComplexNumber {
+private:
+	// поля класса потомка (поля класса-предка будут скопированы автоматически, поэтому их описывать не нужно)
+    double im2;
+    double im3;
+public:
+    Quaternion(double re, double im,
+    double im2, double im3);
+    void print();
+    double calcModule();
+};
+
+
+#endif //INHERITANCE_QUATERNION_H
+```
+
+5) При наследовании автоматически копируется реализация методов класса-предка. Если мы хотим описать свою реализацию данных методов (переопределить метод) мы должны их заново описать в классе потомке и указать их реализациюю в CPP-файле
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#include "Quaternion.h"
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+Quaternion::Quaternion(double re, double im, double im2, double im3)
+        : ComplexNumber(re, im){
+    this->im2 = im2;
+    this->im3 = im3;
+}
+
+void Quaternion::print() {
+    cout << re << "+"
+         << im << "i" << "+"
+         << im2 << "j" << "+"
+                       << im3 << "k" << endl;
+}
+
+double Quaternion::calcModule() {
+    return sqrt(this->re * this->re +
+    this->im * this->im + this->im2 * this->im2
+    + this->im3 * this->im3);
+}
+```
+
+6) Проверить код в Main
+
+```C
+#include <iostream>
+#include "Quaternion.h"
+#include "ComplexNumber.h"
+using namespace std;
+int main() {
+    ComplexNumber *a = new ComplexNumber(5, 6);
+    cout << a->calcModule() << endl;
+    a->print();
+
+    Quaternion *q = new Quaternion(5, 6, 3, 4);
+    cout << q->calcModule() << endl;
+    q->print();
+
+}
+```
