@@ -145,3 +145,141 @@ int main() {
 
 }
 ```
+
+## Механизм восходящего преобразования
+
+* Пусть есть класс A - предок, и есть классы B, C, D - потомки.
+
+* Тогда, можно объявить ссылочную переменую типа A* a, и ей присваивать объекты классов-потомков.
+
+* Благодаря этому вы можете иметь коллекцию указателей типа A*, но при этом каждый из указателей может указывать на конкретный объект классов B, C или D
+
+* И вы можете работать с коллекцией объектов разных типов таким образом, будто это объекты одного типа A
+
+* Это третий(четвертый) принцип ООП - полиморфизм.
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#ifndef INHERITANCE2_SHAPE_H
+#define INHERITANCE2_SHAPE_H
+
+class Shape {
+public:
+    virtual double calcArea() = 0;
+};
+
+
+#endif //INHERITANCE2_SHAPE_H
+```
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#ifndef INHERITANCE2_RECTANGLE_H
+#define INHERITANCE2_RECTANGLE_H
+
+
+#include "Shape.h"
+
+class Rectangle : public Shape {
+protected:
+    int height;
+    int weight;
+public:
+    Rectangle(int weight, int height);
+    double calcArea();
+};
+
+
+#endif //INHERITANCE2_RECTANGLE_H
+```
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#include "Rectangle.h"
+
+double Rectangle::calcArea() {
+    return this->height * this->weight;
+}
+
+Rectangle::Rectangle(int weight, int height) {
+    this->weight = weight;
+    this->height = height;
+}
+```
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#ifndef INHERITANCE2_ELLIPSE_H
+#define INHERITANCE2_ELLIPSE_H
+
+
+#include "Shape.h"
+
+class Ellipse : public Shape {
+protected:
+    int radius1;
+    int radius2;
+public:
+    Ellipse(int radius1, int radius2);
+    double calcArea();
+};
+
+
+#endif //INHERITANCE2_ELLIPSE_H
+```
+
+```C
+//
+// Created by admin on 30.05.2018.
+//
+
+#include "Ellipse.h"
+#include <cmath>
+Ellipse::Ellipse(int radius1, int radius2) {
+    this->radius1 = radius1;
+    this->radius2 = radius2;
+}
+
+double Ellipse::calcArea() {
+    return M_PI * radius1 * radius2;
+}
+```
+
+```C
+#include <iostream>
+#include "Shape.h"
+#include "Rectangle.h"
+#include "Ellipse.h"
+
+using namespace std;
+int main() {
+    // восходящее преобразование
+//    Shape *rectangle = new Rectangle(5, 2);
+//    Shape *ellipse = new Ellipse(3, 2);
+//    cout << rectangle->calcArea() << endl;
+//    cout << ellipse->calcArea();
+    Rectangle *a = new Rectangle(2, 3);
+    Rectangle *b = new Rectangle(4, 2);
+    Ellipse *c = new Ellipse(1, 2);
+    Ellipse *d = new Ellipse(4, 1);
+
+    Shape* shapes[] = {a, b, c, d};
+    for (int i = 0; i < 4; i++) {
+        cout << shapes[i]->calcArea() << endl;
+    }
+
+    return 0;
+}
+```
