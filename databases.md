@@ -56,3 +56,35 @@ SELECT * FROM student RIGHT JOIN
 SELECT * FROM student FULL OUTER JOIN
   dish ON student.id = dish.owner_id;
 ```
+
+### Пицца
+
+```SQL
+create table client (
+--   уникальное целое число, которое будет генерироваться автоматически
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  phone VARCHAR(20)
+);
+
+create table pizza (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(30),
+  price DOUBLE PRECISION
+);
+
+create table "order" (
+  id SERIAL PRIMARY KEY,
+  address VARCHAR(30),
+  client_id BIGINT,
+  FOREIGN KEY (client_id) REFERENCES client(id)
+);
+
+create table pizza_order (
+  pizza_id BIGINT,
+  order_id BIGINT,
+  FOREIGN KEY (pizza_id) REFERENCES pizza(id),
+  FOREIGN KEY (order_id) REFERENCES "order"(id)
+);
+```
