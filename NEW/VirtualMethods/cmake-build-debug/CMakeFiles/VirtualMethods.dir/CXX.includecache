@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/AlphaBetOrDigitsExtractFunction.h
+cstring
+-
+TextFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/TextFunction.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/MainTextProcessor.h
+TextFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/TextFunction.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/TextFunction.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/ToLowerCaseFunction.h
+cstring
+-
+TextFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/TextFunction.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/ToUpperCaseFunction.h
+cstring
+-
+TextFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/TextFunction.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/main.cpp
+iostream
+-
+ToLowerCaseFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/ToLowerCaseFunction.h
+AlphaBetOrDigitsExtractFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/AlphaBetOrDigitsExtractFunction.h
+MainTextProcessor.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/MainTextProcessor.h
+ToUpperCaseFunction.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/VirtualMethods/ToUpperCaseFunction.h
+
