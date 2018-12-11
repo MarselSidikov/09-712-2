@@ -1,0 +1,3 @@
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/cmake-build-debug/CMakeFiles/ExamTaskLast.dir
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/cmake-build-debug/CMakeFiles/rebuild_cache.dir

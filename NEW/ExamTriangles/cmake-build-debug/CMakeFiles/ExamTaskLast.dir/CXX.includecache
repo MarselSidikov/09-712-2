@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/RightAngleTriangle.cpp
+cmath
+-
+iostream
+-
+RightAngleTriangle.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/RightAngleTriangle.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/RightAngleTriangle.h
+Triangle.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/Triangle.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/Triangle.cpp
+cmath
+-
+iostream
+-
+Triangle.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/Triangle.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/Triangle.h
+
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/main.cpp
+iostream
+-
+Triangle.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/Triangle.h
+RightAngleTriangle.h
+C:/Users/admin.WIN-IPM3OA3VQNQ/ClionProjects/ExamTaskLast/RightAngleTriangle.h
+
